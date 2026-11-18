@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3133932491436416145}
   - component: {fileID: 2511465251362161933}
-  - component: {fileID: 2461613861194824666}
+  - component: {fileID: 3508197386954231512}
   m_Layer: 0
   m_Name: NormalEnemy
   m_TagString: Untagged
@@ -58,7 +58,7 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2461613861194824666
+--- !u!114 &3508197386954231512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,12 +67,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1331183946589835795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ef75aa9e9668b45a5fb87cccb4b9a3, type: 3}
+  m_Script: {fileID: 11500000, guid: b413c8e37f3a46147906d994ed1d90ea, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  stats: {fileID: 11400000, guid: 2b14944259a48424ca2c2751dfbb7af7, type: 2}
-  type: 0
-  experienceOrbPrefab: {fileID: 7556447887661164461, guid: 8f9e36d76e0caaf499c2ac8c3cd1d0ce, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::CombatEnemy
+  displayName: Enemigo
+  maxHp: 80
+  attackValue: 10
+  healValue: 12
+  healBelowPercent: 0.4
 --- !u!1 &1851210105911133630
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,7 +216,7 @@ Transform:
   m_GameObject: {fileID: 8200336989160368377}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.035, y: -0.25, z: 0}
+  m_LocalPosition: {x: -0.035, y: -0.5, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children: []

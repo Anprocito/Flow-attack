@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1956870392078921274}
   - component: {fileID: 2767333866571475926}
   - component: {fileID: 73838182065259722}
+  - component: {fileID: 7644909721685713366}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -157,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db41cb644728104898759457bc9b937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  baseStats: {fileID: 0}
+  baseStats: {fileID: 11400000, guid: d2bc1014f302d884a97b29ec7f39558d, type: 2}
 --- !u!114 &73838182065259722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +177,18 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7644909721685713366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3825131090947709334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b3c213c91aa314468709d2397a295fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
 --- !u!1 &6614430643762262421
 GameObject:
   m_ObjectHideFlags: 0
