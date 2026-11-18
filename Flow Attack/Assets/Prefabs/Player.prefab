@@ -12,11 +12,7 @@ GameObject:
   - component: {fileID: 1510204295023134959}
   - component: {fileID: 4738095294439933648}
   - component: {fileID: 2870908548978325752}
-  - component: {fileID: 2103365152610180678}
-  - component: {fileID: 5309549896810956106}
-  - component: {fileID: 7219840570721523089}
   - component: {fileID: 1956870392078921274}
-  - component: {fileID: 2618287929876728828}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -124,55 +120,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &2103365152610180678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3825131090947709334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ce3e765ff7a2e4893af29b1e9d90dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  baseStats: {fileID: 11400000, guid: d2bc1014f302d884a97b29ec7f39558d, type: 2}
---- !u!114 &5309549896810956106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3825131090947709334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b3382651e2325e448a516249682b788, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  useGravity: 1
-  gravity: 20
-  skinWidth: 0.02
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &7219840570721523089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3825131090947709334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b3c213c91aa314468709d2397a295fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  onHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  onDied:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!136 &1956870392078921274
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -196,19 +143,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2618287929876728828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3825131090947709334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b577921f1c9512f4d96249245693d9b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InventoryGrid
-  gridUI: {fileID: 0}
 --- !u!1 &6614430643762262421
 GameObject:
   m_ObjectHideFlags: 0
