@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 // Crea toda la interfaz por codigo (canvas, textos, imagenes).
@@ -9,6 +12,7 @@ public class BattleUI : MonoBehaviour
 
     Font font;
     Text prompt, info, menu, log;
+    GameObject restartButton;
 
     void Awake()
     {
@@ -27,16 +31,68 @@ public class BattleUI : MonoBehaviour
 
         Root = canvasGO.GetComponent<RectTransform>();
 
-        info   = MakeText(Root, "Info",   new Vector2(0.5f, 0.93f), 30);
-        log    = MakeText(Root, "Log",    new Vector2(0.5f, 0.85f), 28);
-        menu   = MakeText(Root, "Menu",   new Vector2(0.5f, 0.12f), 38);
+        info = MakeText(Root, "Info", new Vector2(0.5f, 0.93f), 30);
+        log = MakeText(Root, "Log", new Vector2(0.5f, 0.85f), 28);
+        menu = MakeText(Root, "Menu", new Vector2(0.5f, 0.12f), 38);
         prompt = MakeText(Root, "Prompt", new Vector2(0.5f, 0.12f), 34);
+
+        BuildRestartButton();
+    }
+
+    // ---------- Reinicio ----------
+
+    void BuildRestartButton()
+    {
+        EnsureEventSystem();
+
+        Image bg = MakeImage(Root, "RestartButton", new Color(0.15f, 0.15f, 0.15f, 0.9f));
+        bg.raycastTarget = true; // el boton necesita recibir clics
+
+        RectTransform rt = bg.rectTransform;
+        rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.3f);
+        rt.sizeDelta = new Vector2(320f, 80f);
+        rt.anchoredPosition = Vector2.zero;
+
+        Button button = bg.gameObject.AddComponent<Button>();
+        button.targetGraphic = bg;
+        button.onClick.AddListener(Restart);
+
+        Text label = MakeText(rt, "Label", new Vector2(0.5f, 0.5f), 34);
+        label.text = "Reiniciar (R)";
+
+        restartButton = bg.gameObject;
+        restartButton.SetActive(false);
+    }
+
+    // El boton necesita un EventSystem compatible con el nuevo Input System.
+    void EnsureEventSystem()
+    {
+        EventSystem es = FindFirstObjectByType<EventSystem>();
+        if (es == null) es = new GameObject("EventSystem").AddComponent<EventSystem>();
+
+        // El modulo viejo no funciona con el nuevo Input System.
+        StandaloneInputModule legacy = es.GetComponent<StandaloneInputModule>();
+        if (legacy != null) Destroy(legacy);
+
+        if (es.GetComponent<InputSystemUIInputModule>() == null)
+        {
+            var module = es.gameObject.AddComponent<InputSystemUIInputModule>();
+            module.AssignDefaultActions();
+        }
+    }
+
+    public void ShowRestart(bool show) => restartButton.SetActive(show);
+
+    // Recarga la escena actual. Debe estar en File > Build Settings.
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void SetPrompt(string s) => prompt.text = s;
-    public void SetInfo(string s)   => info.text = s;
-    public void SetMenu(string s)   => menu.text = s;
-    public void SetLog(string s)    => log.text = s;
+    public void SetInfo(string s) => info.text = s;
+    public void SetMenu(string s) => menu.text = s;
+    public void SetLog(string s) => log.text = s;
 
     public Text MakeText(Transform parent, string name, Vector2 anchor, int size)
     {

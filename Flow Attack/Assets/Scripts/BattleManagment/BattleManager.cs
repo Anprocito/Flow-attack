@@ -72,6 +72,9 @@ public class BattleManager : MonoBehaviour
                 if (kb.digit1Key.wasPressedThisFrame) ChooseAction(true);
                 else if (kb.digit2Key.wasPressedThisFrame) ChooseAction(false);
                 break;
+            case State.Ended:
+                if (kb.rKey.wasPressedThisFrame) ui.Restart();
+                break;
         }
     }
 
@@ -196,6 +199,7 @@ public class BattleManager : MonoBehaviour
         {
             state = State.Ended;
             ui.SetLog("¡VICTORIA! Derrotaste a todos los enemigos");
+            ui.ShowRestart(true);
             return;
         }
 
@@ -210,6 +214,8 @@ public class BattleManager : MonoBehaviour
         state = State.Ended;
         ui.SetMenu("");
         ui.SetLog("DERROTA");
+        ui.SetInfo("");
+        ui.ShowRestart(true);
         // PlayerHealth ya deshabilita el PlayerController al morir.
     }
 
