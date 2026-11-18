@@ -2675,7 +2675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3508197386954231512, guid: 1f11a331bea9abe488b4040db6c0c313, type: 3}
       propertyPath: healValue
-      value: 35
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 3508197386954231512, guid: 1f11a331bea9abe488b4040db6c0c313, type: 3}
       propertyPath: attackValue
@@ -3509,7 +3509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3508197386954231512, guid: 1f11a331bea9abe488b4040db6c0c313, type: 3}
       propertyPath: healValue
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3508197386954231512, guid: 1f11a331bea9abe488b4040db6c0c313, type: 3}
       propertyPath: attackValue
@@ -3985,6 +3985,10 @@ PrefabInstance:
     - target: {fileID: 3133932491436416145, guid: 1f11a331bea9abe488b4040db6c0c313, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3508197386954231512, guid: 1f11a331bea9abe488b4040db6c0c313, type: 3}
+      propertyPath: healValue
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
